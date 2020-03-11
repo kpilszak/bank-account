@@ -3,6 +3,7 @@ public abstract class Account implements IRate {
     String sSN;
     double balance;
 
+    static int index = 10000;
     String accountNumber;
     double rate;
 
@@ -11,5 +12,16 @@ public abstract class Account implements IRate {
         this.sSN = sSN;
         balance = initDeposit;
         System.out.println("NAME: " + name + " SSN: " + sSN + " BALANCE: " + balance);
+
+        index++;
+        this.accountNumber = setAccountNumber();
+        System.out.println("ACCOUNT NUMBER: " + this.accountNumber);
+    }
+
+    private String setAccountNumber() {
+        String lastTwoOfSSN = sSN.substring(sSN.length() - 2, sSN.length());
+        int uniqueID = index;
+        int randomNumber = (int) (Math.random() * Math.pow(10, 3));
+        return lastTwoOfSSN + uniqueID + randomNumber;
     }
 }
