@@ -1,4 +1,4 @@
-public abstract class Account implements IRate {
+public abstract class Account implements IBaseRate {
     String name;
     String sSN;
     double balance;
@@ -25,6 +25,13 @@ public abstract class Account implements IRate {
         int uniqueID = index;
         int randomNumber = (int) (Math.random() * Math.pow(10, 3));
         return lastTwoOfSSN + uniqueID + randomNumber;
+    }
+
+    public void compound() {
+        double accruedInterest = balance * (rate / 100);
+        balance += accruedInterest;
+        System.out.println("Accrued Interest: $" + accruedInterest);
+        printBalance();
     }
 
     public void deposit(double amount) {
