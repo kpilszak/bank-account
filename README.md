@@ -1,4 +1,4 @@
-<h1 align="right">Bank Account</h1><br>
+<h1 align="right">Bank account</h1><br>
 
 ## Table of contents
 * [General info](#general-info)
